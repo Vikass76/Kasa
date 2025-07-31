@@ -1,0 +1,55 @@
+.notfound-container {
+  text-align: center;
+  padding: 100px 20px;
+  color: #FF6060;
+  font-family: Montserrat, sans-serif;
+
+  h1 {
+    font-size: 288px;
+    font-weight: 700;
+    margin: 0 0 80px 0; /* espace plus grand sous le 404 */
+  }
+
+  p {
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0 0 100px 0; /* espace plus grand sous la phrase */
+  }
+
+  a {
+    font-size: 18px;
+    text-decoration: underline;
+    color: #000;
+    margin: 0 auto;
+    display: inline-block;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .notfound-container {
+      min-height: calc(100vh - 500px); // ajuste selon la hauteur de ton header + footer
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    h1 {
+      font-size: 96px;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #FF6060;
+    }
+
+    a {
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: underline;
+      color: #000;
+    }
+  }
+}
+
