@@ -1,6 +1,5 @@
 .housing-container {
   max-width: 1240px;
-  padding: 20px;
 }
 
 .housing-header {
@@ -90,7 +89,7 @@
 .housing-collapses {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 15px;
   gap: 76px;
 
   .collapse {
@@ -100,7 +99,7 @@
 
 @media (max-width: 768px) {
   .housing-container {
-    padding: 20px;
+    padding: 0px;
   }
 
   .housing-header {

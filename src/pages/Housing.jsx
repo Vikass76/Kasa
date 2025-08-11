@@ -1,31 +1,42 @@
-import { useParams, Navigate } from 'react-router-dom';
-import logements from '../data/logements.json';
-import Slideshow from '../components/Slideshow';
-import Collapse from '../components/Collapse';
-import '../styles/housing.scss';
-
+import { useEffect, useState } from "react";
+import { useParams, Navigate } from "react-router-dom";
+import Slideshow from "../components/Slideshow";
+import Collapse from "../components/Collapse";
+import "../styles/housing.scss";
 
 export default function Housing() {
   const { id } = useParams();
-  const logement = logements.find((logement) => logement.id === id);
+  const [logements, setLogements] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  const url = "/src/data/logements.json";
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setLogements(data);
+        setLoading(false);
+      })
+      .catch((err) => console.error("Erreur chargement :", err));
+  }, []);
+
+  if (loading) return <p>Chargement...</p>;
+
+  const logement = logements.find((item) => item.id === id);
   if (!logement) return <Navigate to="/404" />;
 
-  // Fonction pour afficher les étoiles selon la note
   const renderStars = () => {
-    const stars = [];
-    for(let i = 1; i <= 5; i++) {
-      stars.push(
-        <span key={i} className={i <= logement.rating ? 'star filled' : 'star'}>★</span>
-      );
-    }
-    return stars;
+    return Array.from({ length: 5 }, (_, i) => (
+      <span key={i} className={i < logement.rating ? "star filled" : "star"}>
+        ★
+      </span>
+    ));
   };
 
   return (
     <div className="housing-container">
       <Slideshow pictures={logement.pictures} />
-
       <div className="housing-header">
         <div>
           <h1>{logement.title}</h1>
@@ -36,7 +47,6 @@ export default function Housing() {
             ))}
           </div>
         </div>
-
         <div className="host-rating">
           <div className="host">
             <p>{logement.host.name}</p>
@@ -45,7 +55,6 @@ export default function Housing() {
           <div className="rating">{renderStars()}</div>
         </div>
       </div>
-
       <div className="housing-collapses">
         <Collapse title="Description" className="housing-collapse">
           <p>{logement.description}</p>

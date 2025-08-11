@@ -5,7 +5,7 @@ import NotFound from '../pages/NotFound';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Housing from '../pages/Housing';
-import '../styles/main.scss';
+import '../styles/Main.scss';
 
 export default function Router() {
   return (

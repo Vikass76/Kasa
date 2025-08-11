@@ -1,18 +1,18 @@
-// src/components/Collapse.jsx
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Collapse.scss';
 
 export default function Collapse({ title, children, className = '' }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [show, setShow] = useState(false);
 
   return (
-    <div className={`collapse ${className}`}>
-      <div className="collapse-header" onClick={() => setIsOpen(!isOpen)}>
+    <div className={`collapse ${className} ${show ? 'show' : ''}`}>
+      <div className="collapse-header" onClick={() => setShow(!show)}>
         <h3>{title}</h3>
-        <span className={`arrow ${isOpen ? 'open' : ''}`}>⌃</span>
+        <FontAwesomeIcon icon={faChevronUp} className={`arrow ${show ? 'open' : ''}`} />
       </div>
-      {isOpen && <div className="collapse-content">{children}</div>}
+      <div className="collapse-content">{children}</div>
     </div>
   );
 }
-

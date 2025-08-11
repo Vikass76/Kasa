@@ -1,52 +1,67 @@
 .card {
-    width: 340px;
-    height: 340px;
-    border-radius: 10px;
-    background: #FF6060;
-    overflow: hidden;
-    position: relative;
-  
-    &__image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  
-    &__title {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      color: white;
-      font-size: 18px;
-      font-family: Montserrat, sans-serif;
-    }
+  width: 340px;
+  height: 340px;
+  border-radius: 10px;
+  background: #FF6060;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease; // petit zoom optionnel
   }
-  
-  @media (max-width: 768px) {
-    .cards-container {
-      display: contents;
+
+  &__title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 18px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    z-index: 1;
+  }
+
+  // Effet overlay invisible par défaut
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  // Hover : overlay + zoom image
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &:hover .card__image {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    display: contents;
     padding: 0;
     margin: 0;
-    }
-  
-    .card {
-      width: 100%;
-      height: 255px;
-      aspect-ratio: 1 / 1;
-      border-radius: 10px;
-  
-      &__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-  
-      &__title {
-        font-size: 18px;
-        font-weight: 700;
-      }
+  }
+
+  .card {
+    width: 100%;
+    height: 255px;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+
+    &__title {
+      font-size: 18px;
+      font-weight: 700;
     }
   }
-  
-  
-  
+}
