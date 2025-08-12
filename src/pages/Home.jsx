@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import Banner from '../components/Banner';
-import Card from '../components/Card';
-import logements from '../data/logements.json';
-import bannerHome from '../assets/banner-home.png';
+import Banner from '@components/Banner';
+import Card from '@components/Card';
+import logements from '@/data/logements.json';
+import bannerHome from '@assets/banner-home.png';
 
 export default function Home() {
   return (

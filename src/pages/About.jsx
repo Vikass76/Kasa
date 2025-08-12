@@ -1,6 +1,6 @@
-import Banner from '../components/Banner';
-import Collapse from '../components/Collapse';
-import bannerAbout from '../assets/banner-about.png'; 
+import Banner from '@components/Banner';
+import Collapse from '@components/Collapse';
+import bannerAbout from '@assets/banner-about.png'; 
 
 export default function About() {
   return (

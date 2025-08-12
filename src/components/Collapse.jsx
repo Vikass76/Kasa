@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import '../styles/Collapse.scss';
+import '@styles/Collapse.scss';
 
 export default function Collapse({ title, children, className = '' }) {
   const [show, setShow] = useState(false);

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
-import Slideshow from "../components/Slideshow";
-import Collapse from "../components/Collapse";
-import "../styles/housing.scss";
+import Slideshow from "@components/Slideshow";
+import Collapse from "@components/Collapse";
+import "@styles/housing.scss";
 
 export default function Housing() {
   const { id } = useParams();

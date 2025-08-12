@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import '../styles/slideshow.scss';
-import arrowLeft from '../assets/Arrow-left.svg';
-import arrowRight from '../assets/Arrow-right.svg';
+import '@styles/slideshow.scss';
+import arrowLeft from '@assets/Arrow-left.svg';
+import arrowRight from '@assets/Arrow-right.svg';
 
 export default function Slideshow({ pictures }) {
   const [currentIndex, setCurrentIndex] = useState(0);
