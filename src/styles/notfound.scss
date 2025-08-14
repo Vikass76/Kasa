@@ -28,7 +28,6 @@
 
 @media (max-width: 768px) {
   .notfound-container {
-      min-height: calc(100vh - 500px); // ajuste selon la hauteur de ton header + footer
       display: flex;
       flex-direction: column;
       justify-content: center;
